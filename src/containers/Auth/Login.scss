@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'Patrick Hand';
+    src: url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+}
+
+a {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    text-decoration: none;
+}
+
+.login-background {
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --text-title-color: #264696;
+    --text-title-small-color: #949494;
+
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Patrick Hand', cursive;
+
+    .login-container {
+        width: 55%;
+
+        .login-frame {
+            width: 100%;
+            height: 100%;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+
+            .login-content {
+
+
+                .login-title {
+                    text-align: left;
+                    margin-bottom: 30px;
+
+                    .login-h {
+                        font-size: 2.5rem;
+                        font-weight: 1000;
+                        color: var(--text-title-color);
+                        text-shadow: var(--tw-shadow-colored);
+
+                    }
+
+                    .small-logan {
+                        font-size: 0.8rem;
+                        color: var(--text-title-small-color);
+                        font-style: italic;
+                    }
+                }
+
+                .login-area {}
+
+                .login-form {
+                    position: relative;
+                    border-bottom: 2px solid #adadad;
+                    margin-bottom: 20px;
+
+                }
+
+
+                .login-form {
+                    .input-style {
+                        width: 100%;
+                        padding: 0 5px;
+                        height: 40px;
+                        font-size: 16px;
+                        border: none;
+                        background: none;
+                        outline: none;
+                    }
+
+                    .label-style {
+                        position: absolute;
+                        top: 60%;
+                        left: 5px;
+                        color: #adadad;
+                        transform: translateY(-50%);
+                        font-size: 16px;
+                        pointer-events: none;
+                        transition: .5s;
+                    }
+
+                    .span-style {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 40px;
+                            left: 0;
+                            width: 0%;
+                            height: 2px;
+                            background: var(--text-title-color);
+                            transition: .5s;
+                        }
+                    }
+
+                }
+
+                .login-form input:focus~label,
+                .login-form input:valid~label {
+                    top: -5px;
+                    color: var(--text-title-color);
+                }
+
+                .login-form input:valid~label {
+                    top: -5px;
+                    color: var(--text-title-color);
+                }
+
+                .login-form input:focus~span::before {
+                    width: 100%;
+                }
+
+
+                .wrapper {
+                    text-align: center
+                }
+
+                button {
+                    display: block;
+                    width: 100%;
+                    height: 35px;
+                    line-height: 32px;
+                    font-size: 18px;
+                    font-family: sans-serif;
+                    text-decoration: none;
+                    color: #333;
+                    border: 2px solid var(--text-title-color);
+                    letter-spacing: 2px;
+                    text-align: center;
+                    position: relative;
+                    transition: all 1.35s;
+                    border-radius: 10px;
+                    margin: 0px 0px 20px;
+
+                    span {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 100%;
+                        background: var(--text-title-color);
+                        transition: all .35s;
+                        border-radius: 15px;
+                    }
+
+                    &:hover {
+                        color: #fff;
+
+                        &:after {
+                            width: 100%;
+                        }
+                    }
+
+
+                }
+
+                .striped {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0.5rem 0.5rem;
+
+                    &-line {
+                        flex: auto;
+                        flex-basis: auto;
+                        border: none;
+                        outline: none;
+                        height: 2px;
+                        background: var(--text-title-small-color);
+                    }
+
+                    &-text {
+                        font-family: inherit;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        line-height: inherit;
+                        color: var(--text-title-small-color);
+                        margin: 0 1rem;
+                    }
+                }
+
+                .input-control {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+
+                    .wrapper {
+                        margin-top: 1.25rem;
+
+                        button {
+                            border: 2px solid rgb(230, 50, 116);
+
+                            &:after {
+                                background: #b7223b;
+
+                            }
+                        }
+                    }
+
+                    .forgot {
+                        span {
+                            margin-left: -3.5rem;
+                            font-size: 1rem;
+                            color: blue;
+                            font-style: italic;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .login-social {
+                    .fb {
+                        margin-top: 1.25rem;
+
+                        i {
+                            color: #3b5998;
+                        }
+
+                        button {
+                            border: 2px solid rgb(214, 216, 74);
+
+                            &:after {
+                                background: #1c57b6;
+
+                            }
+                        }
+                    }
+
+                    .google {
+                        margin-top: 1.25rem;
+
+                        i {
+                            color: #f52815;
+                        }
+
+                        button {
+                            border: 2px solid rgb(101, 244, 122);
+
+                            &:after {
+                                background: #17e47e;
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .login-image {
+                text-align: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+            }
+
+        }
+    }
+
+}
