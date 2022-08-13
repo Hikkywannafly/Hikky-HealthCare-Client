@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
-
+import { handleLoginAuth } from '../../services/user.service';
 
 // import * as actions from "../../store/actions";
 import * as actions from "../../store/actions";
@@ -25,13 +25,20 @@ class Login extends Component {
         this.setState({
             [type]: event.target.value
         })
-        console.log(event.target.value);
+
     }
-    handelLogin = () => {
-        console.log(`userName: ${this.state.userName} , password ${this.state.password}`);
-        return false;
+    handleLogin = async () => {
+        try {
+            await handleLoginAuth(this.state.userName, this.state.password);
+
+        }
+        catch (err) {
+            console.log(`err from handelLogin ${err.message}`);
+
+        }
+
     }
-    handelHideShowPassword = () => {
+    handleHideShowPassword = () => {
         this.setState({
             isShowingPaswword: !this.state.isShowingPaswword
         })
@@ -57,7 +64,7 @@ class Login extends Component {
                             {/* <form> */}
                             <div className="login-area">
                                 <div className="login-form">
-                                    <input type="text" className="input-style"
+                                    <input type="text" className="input-style" placeholder="Enter your user name or email"
                                         value={this.state.userName}
                                         onChange={(event) => this.handleOnChangeInput(event, 'userName')}></input>
                                     <span className="span-style"></span>
@@ -66,13 +73,14 @@ class Login extends Component {
                                 <br></br>
                                 <div className="login-form ">
                                     <input type={!this.state.isShowingPaswword ? 'password' : 'text'} className="input-style"
+                                        placeholder="Enter your password"
                                         value={this.state.password}
                                         onChange={(event) => { this.handleOnChangeInput(event, 'password') }}></input>
                                     <span className="span-style"></span>
                                     <label className="label-style" >Password</label>
                                     <div className='control-password'
-                                        onClick={(event) => this.handelHideShowPassword()} >
-                                        <span clasName="show-hide">{!this.state.isShowingPaswword ? 'Show' : 'Hide'}</span></div>
+                                        onClick={(event) => this.handleHideShowPassword()} >
+                                        <span className="show-hide">{!this.state.isShowingPaswword ? 'Show' : 'Hide'}</span></div>
 
                                 </div>
                             </div>
@@ -86,7 +94,7 @@ class Login extends Component {
                                 <div className="col">
                                     <div className="wrapper">
                                         <button
-                                            onClick={(event) => this.handelLogin(event)}>
+                                            onClick={(event) => this.handleLogin(event)}>
                                             <span >Login</span>
                                         </button>
                                     </div>
